@@ -49,7 +49,9 @@
     \endcenter}
 
 \newcommand\ucwords[2][3]{%
-    \directlua{
+    % Fails gracefully if not in LuaLaTeX
+    \providecommand\directlua[1]{#2}
+    \directlua{%
 	local minlen=tonumber("#1")
 	local src="\luaescapestring{\unexpanded{#2}}"
 	local dst={}
