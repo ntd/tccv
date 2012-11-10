@@ -48,6 +48,25 @@
 	{\fontfamily{pzc}\selectfont\Huge Curriculum vitae}
     \endcenter}
 
+\newcommand\ucwords[2][3]{%
+    \directlua{
+	local minlen=tonumber("#1")
+	local src="\luaescapestring{\unexpanded{#2}}"
+	local dst={}
+	for w in src:gmatch('[^\string\%s]+') do
+	    if w:len() >= minlen then w = w:sub(1,1):upper()..w:sub(2) end
+	    table.insert(dst, w)
+	end
+	tex.print(dst)}}
+
+% Redefine the \section command to capitalize every
+% word for cosmetic purposes.
+\makeatletter
+\let\old@section\section
+\renewcommand\section[2][]{
+    \old@section[#1]{\ucwords{#2}}}
+\makeatother
+
 % Renders a personal data box:
 %
 % |[
