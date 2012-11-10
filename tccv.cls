@@ -48,6 +48,15 @@
 	{\fontfamily{pzc}\selectfont\Huge Curriculum vitae}
     \endcenter}
 
+% Capitalize words of at least a minimum length (default to 3 chars).
+% The text is capitalized before being expanded.
+%
+% This macro uses Lua to do the job but fails gracefully (that is,
+% return the text as is) if \directlua is not available.
+%
+% |[
+% \ucwords[optional: miminum length]{text}
+% ]|
 \newcommand\ucwords[2][3]{%
     % Fails gracefully if not in LuaLaTeX
     \providecommand\directlua[1]{#2}
