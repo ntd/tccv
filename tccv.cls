@@ -65,7 +65,7 @@
 % word for cosmetic purposes.
 \makeatletter
 \let\old@section\section
-\renewcommand\section[2][]{
+\renewcommand\section[2][]{%
     \old@section[#1]{\ucwords{#2}}}
 \makeatother
 
