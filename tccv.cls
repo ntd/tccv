@@ -29,24 +29,9 @@
 
 \LoadClass[10pt]{scrartcl}
 
-\RequirePackage[hmargin=1.25cm, vmargin=1.5cm]{geometry}
-\RequirePackage{bookman,etoolbox,hyperref,marvosym,tabularx,xcolor}
-\RequirePackage[english]{babel}
-
-\pagestyle{empty}
-\color[HTML]{303030} % Default foreground color
-\definecolor{link}{HTML}{506060} % Hyperlinks
-\hypersetup{colorlinks,breaklinks,urlcolor=link,linkcolor=link}
-\renewcommand*\othersectionlevelsformat[3]{}
-\setkomafont{disposition}{\color[HTML]{801010}}
-\setkomafont{section}{%
-    \scshape\Large\mdseries
-    \makebox[0mm][l]{\raisebox{-4pt}{\rule{\linewidth}{0.5pt}}}}
-\renewcommand*\part[1]{%
-    \center
-	{\usekomafont{part} #1} \\
-	{\fontfamily{pzc}\selectfont\Huge Curriculum vitae}
-    \endcenter}
+\setcounter{secnumdepth}{-1}
+\RequirePackage[hmargin=1.25cm,vmargin=1.25cm,twocolumn,columnsep=1.25cm]{geometry}
+\RequirePackage{bookman,etoolbox,hyperref,marvosym,needspace,tabularx,xcolor}
 
 % Capitalize words of at least a minimum length (default to 3 chars).
 % The text is capitalized before being expanded.
@@ -59,7 +44,7 @@
 % ]|
 \newcommand\ucwords[2][3]{%
     % Fails gracefully if not in LuaLaTeX
-    \providecommand\directlua[1]{#2}
+    \providecommand\directlua[1]{#2}%
     \directlua{%
 	local minlen=tonumber("#1")
 	local src="\luaescapestring{\unexpanded{#2}}"
@@ -70,12 +55,35 @@
 	end
 	tex.print(dst)}}
 
-% Redefine the \section command to capitalize every
-% word for cosmetic purposes.
+\pagestyle{empty}
+\setlength\parindent{0pt}
+\color[HTML]{303030} % Default foreground color
+\definecolor{link}{HTML}{506060} % Hyperlinks
+\hypersetup{colorlinks,breaklinks,urlcolor=link,linkcolor=link}
+\setkomafont{disposition}{\color[HTML]{801010}}
+\setkomafont{section}{\scshape\Large\mdseries}
+
+% In tccv \part must contain the subject of the curriculum vitae.
+% The command will start a new page and output in onecolumn the
+% subject (first and last name) with the hardcoded text
+% "Curriculum vitae" under it.
+\renewcommand\part[1]{%
+    \twocolumn[%
+    \begin{center}
+	{\usekomafont{part} #1} \medskip\\
+	{\fontfamily{pzc}\selectfont\Huge Curriculum vitae}
+	\bigskip
+    \end{center}]}
+
+% Overrides the \section command to capitalize every
+% word for cosmetic purposes and draws a rule under it.
 \makeatletter
 \let\old@section\section
 \renewcommand\section[2][]{%
-    \old@section[#1]{\ucwords{#2}}}
+    \old@section[#1]{\ucwords{#2}}%
+    \newdimen\raising%
+    \raising=\dimexpr-0.7\baselineskip\relax%
+    \vskip\raising\hrule height 0.4pt\vskip-\raising}
 \makeatother
 
 % Renders a personal data box:
@@ -85,8 +93,12 @@
 %          {address}{phone number}{email}
 % ]|
 \newcommand\personal[4][]{%
+    %\newpage%
+    \needspace{0.5\textheight}%
+    \newdimen\boxwidth%
+    \boxwidth=\dimexpr\linewidth-2\fboxsep\relax%
     \colorbox[HTML]{F5DD9D}{%
-    \begin{tabularx}{\linewidth}{c|X}
+    \begin{tabularx}{\boxwidth}{c|X}
     \Writinghand & {#2}\smallskip\\
     \Telefon     & {#3}\smallskip\\
     \Letter      & \href{mailto:#4}{#4}
@@ -110,7 +122,7 @@
 	{\Large\it ##3}
 	\medskip
 	\renewcommand\inskip{\bigskip}}}
-    {}
+    {\bigskip}
 
 % Use only \item inside this environment: no other macros
 % are allowed:
