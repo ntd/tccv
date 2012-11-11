@@ -93,7 +93,6 @@
 %          {address}{phone number}{email}
 % ]|
 \newcommand\personal[4][]{%
-    %\newpage%
     \needspace{0.5\textheight}%
     \newdimen\boxwidth%
     \boxwidth=\dimexpr\linewidth-2\fboxsep\relax%
