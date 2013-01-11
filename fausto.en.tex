@@ -1,0 +1,185 @@
+% This is an example of conditional compilation: it generates two
+% flavours of curriculum vitae based on the command-line arguments.
+% Use whatever you want instead of lualatex.
+%
+% lualatex fausto.en.tex
+%
+%   This will generate fausto.en.pdf with a generic curriculum
+%   vitae.
+%
+% lualatex --jobname=fausto.ngo.en fausto.en.tex
+%
+%   This will generate fausto.ngo.en.pdf with a curriculum vitae
+%   specific for NGO. Notice that portions of the original document
+%   have been disabled while other portions have been enabled.
+
+\documentclass{tccv}
+\usepackage[english]{babel}
+
+
+% The \personal box is put on the left column in fausto.ngo.en and
+% on the right column in fausto.en for mere aesthetic purpose.
+% Instead of copy&paste the data, defining it here as \PERSONAL
+% macro to avoid repetition: only \PERSONAL will be carried around.
+\newcommand\PERSONAL{%
+    \personal
+	{via Milano, 57\newline 25038 -- Rovato (BS)}
+	{+39 (334) 8977107}
+	{apalonyakori@gmail.com}}
+
+
+\begin{document}
+
+\part{Fausto Conter}
+
+\ifjob{fausto.ngo.en}{\PERSONAL}{}
+
+\section{Work experience}
+
+\begin{eventlist}
+
+\item{January 2011 -- May 2012}
+     {Trutorq Italia, Rovato}
+     {After-sale service and maintainer}
+
+Assembly and automation of linear and heavy-duty actuators.
+Planning and drawing of samples on 3D cad. Technical assistance for the
+after-sale departement.
+
+\ifjob{fausto.ngo.en}{
+    \item{July 2010}
+	 {\textsc{S.V.I.}, Mozambique}
+	 {Consultant}
+
+    Feasibility assessment for agriculture/food security proposal for
+    Servizio Volontario Internazionale NGO in Mocodoene for a new project
+    financed by Regione Lombardia.
+}{}
+
+\item{February 2010 -- August 2010}
+     {\textsc{S.V.I.}, Zambia}
+     {\large{1\textsuperscript{st}} consultant}
+
+Providing agricultural and agroforestry skills at rural community in Solwezi for
+the Servizio Volontario Internazionale NGO.
+
+\ifjob{fausto.ngo.en}{
+    \item{March 2007}
+	 {\textsc{S.V.I.}, Uganda}
+	 {Consultant}
+
+    Collection of data with problem solving methodology for an assessment in
+    Morulem for a new project financed by the Italian Ministry of Foreign
+    Affairs.
+
+    \item{June 2007 -- June 2009}
+	 {S.V.I.,Uganda}
+	 {Project Manager}
+
+    The project included training courses of local people on agricultural,
+    agroforestry and activities related to food security, beekeeping, animal
+    traction and microcredit. The building of some zero grazing kraals and
+    of one laboratory for honey and milk processing has been performed.
+    Introduced cross breed program concerning cows and goats. Keeping
+    microcredit and project accountability.
+}{}
+
+\item{November 2004 -- June 2009}
+     {\textsc{S.V.I.}, Uganda}
+     {Project Manager}
+
+Providing agricultural and agroforestry skills at rural community in
+Karamoja, northern Uganda, for the Servizio Volontario Internazionale
+NGO. In the last year I have collected and organized
+information for the SVI book \textit{African sprouts} that speaks about
+the impact of agroforestry in Karamoja in the last 10 years. The job
+consisted mainly in sampling and handling GPS data.
+The project has been financed by many donors such as FAO, KPIU, CEI, WFP
+and ISP.
+
+\item{June 2001 -- August 2004}
+     {Metecnal S.R.L., Rovato}
+     {Technical quality control}
+
+Controlling part dimensions, here included programming 3D CNC control
+machine D.E.A. and drawing management. Helped the emprise in getting the
+ISO 9002:1994 certification.
+
+\ifjob{fausto.en}{
+    \item{September 2000 -- May 2001}
+	 {\textsc{Amica chips} s.r.l., Ospitaletto}
+	 {Warehouseman}
+
+    Good preparation and packaging before the delivering of food supplies
+    for bars and restaurants.
+}{}
+
+\item{September 1995 -- August 2000}
+     {Meccanica Artigiana S.R.L., Rovato}
+     {Precision mechanical workshop}
+
+Manufacturing parts on a metalwork lathe, here included tools presetting and
+CNC programming.
+
+\end{eventlist}
+
+\ifjob{fausto.ngo.en}{}{\PERSONAL}
+
+\section{Education}
+
+\begin{yearlist}
+
+\ifjob{fausto.ngo.en}{}{
+    \item{2011}
+	 {Autocad Inventor course}
+	 {Autocad school, Brescia}
+}
+
+\item{2004}
+     {Advanced course of english}
+     {Anglican Kenian School, Nairobi}
+
+\ifjob{fausto.ngo.en}{
+    \item{2002 -- 2004}
+	 {Course on problem solving}
+	 {SVI headquarter, Brescia}
+}{}
+
+\ifjob{fausto.ngo.en}{}{
+    \item{2001}
+	 {Course on 3D programming}
+	 {Technical school of Acer, Torino}
+}
+
+\item{1998 -- 2000}
+     {Basic english course}
+     {English school, Rovato}
+
+\item{1995 -- 1998}
+     {Technical drawing}
+     {Scuola arte e mestieri, Brescia}
+
+\end{yearlist}
+
+\section{Communication skills}
+
+\begin{factlist}
+\item{Italian}   {Native speaker}
+\item{English}   {Oral: good -- Written: good}
+\item{Karimojong}{Oral: good}
+\item{French}    {Oral and written: basic}
+\end{factlist}
+
+\section{Software skills}
+
+\begin{factlist}
+
+\item{Intermediate}
+     {Microsoft office, Open office, Windows, Linux}
+
+\item{Basic level}
+     {Autocad, Autocad inventor}
+
+\end{factlist}
+
+\end{document}

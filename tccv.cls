@@ -87,6 +87,18 @@
     \vskip\raising\hrule height 0.4pt\vskip-\raising}
 \makeatother
 
+% Allow conditionals based on the job name. This can usually be set
+% from a command-line argument: check fausto.en.tex for an example.
+%
+% |[
+% \ifjob{jobname}{content if matches}{content if does not match}
+% ]|
+\newcommand\ifjob[3]{%
+    \edef\JOBNAME{\jobname}%
+    \edef\PIVOT{\detokenize{#1}}%
+    \ifdefstrequal{\JOBNAME}{\PIVOT}{#2}{#3}%
+}
+
 % Renders a personal data box:
 %
 % |[
