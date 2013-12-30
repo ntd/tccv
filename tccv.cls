@@ -133,7 +133,7 @@
     \renewcommand\item[3]{%
 	\inskip%
 	{\raggedleft\sc ##1\\[1pt]}
-	{##2}\\[2pt]
+	\ifstrempty{##2}{}{##2\\[2pt]}
 	{\Large\it ##3}
 	\medskip
 	\renewcommand\inskip{\bigskip}}}
