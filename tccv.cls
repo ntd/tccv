@@ -49,7 +49,9 @@
 	local minlen=tonumber("#1")
 	local src="\luaescapestring{\unexpanded{#2}}"
 	local dst={}
-	for w in src:gmatch('[^\string\%s]+') do
+	% Put a % inside \directlua is tricky as hell. Use char(37)
+	% instead: still no plans for supporting non-ASCII platforms.
+	for w in src:gmatch(string.char(37) .. "S+") do
 	    if w:len() >= minlen then w = w:sub(1,1):upper()..w:sub(2) end
 	    table.insert(dst, w)
 	end
