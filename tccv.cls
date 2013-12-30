@@ -46,14 +46,17 @@
     % Fails gracefully if not in LuaLaTeX
     \providecommand\directlua[1]{#2}%
     \directlua{%
-	local minlen=tonumber("#1")
-	local src="\luaescapestring{\unexpanded{#2}}"
-	local dst={}
+	local minlen = tonumber("#1")
+	local src = "\luaescapestring{\unexpanded{#2}}"
+	local dst = {}
 	% Put a % inside \directlua is tricky as hell. Use char(37)
 	% instead: still no plans for supporting non-ASCII platforms.
 	for w in src:gmatch(string.char(37) .. "S+") do
-	    if w:len() >= minlen then w = w:sub(1,1):upper()..w:sub(2) end
-	    table.insert(dst, w)
+	    if w:len() >= minlen then
+		table.insert(dst, w:sub(1,1):upper() .. w:sub(2))
+	    else
+		table.insert(dst, w)
+	    end
 	end
 	tex.print(dst)}}
 
