@@ -1,4 +1,4 @@
-% Copyright (C) 2012  Nicola Fontana <ntd at entidi.it>
+% Copyright (C) 2012,2014  Nicola Fontana <ntd at entidi.it>
 %
 % This program can be redistributed and/or modified under
 % the terms of the LaTeX Project Public License, either
@@ -24,10 +24,10 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{tccv}
-              [2012/11/09 v1.0
+              [2014/18/05 v1.1
  Two Column Curriculum Vitae]
 
-\LoadClass[10pt]{scrartcl}
+\LoadClassWithOptions{scrartcl}
 
 \setcounter{secnumdepth}{-1}
 \RequirePackage[hmargin=1.25cm,vmargin=1.25cm,twocolumn,columnsep=1.25cm]{geometry}
