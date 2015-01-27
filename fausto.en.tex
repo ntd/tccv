@@ -13,9 +13,11 @@
 %   specific for NGO. Notice that portions of the original document
 %   have been disabled while other portions have been enabled.
 
-\documentclass[8pt]{tccv}
+\documentclass[fontsize=8pt]{tccv}
 \usepackage[english]{babel}
 
+\usepackage{biblatex}
+\addbibresource{biblatex-examples.bib}
 
 % The \personal box is put on the left column in fausto.ngo.en and
 % on the right column in fausto.en for mere aesthetic purpose.
@@ -191,5 +193,8 @@ CNC programming.
      {Autocad, Autocad inventor}
 
 \end{factlist}
+
+\nocite{springer,companion}
+\printbibliography[title=Publications]
 
 \end{document}
