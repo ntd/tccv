@@ -24,7 +24,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{tccv}
-              [2014/24/06 v1.2
+              [2015/01/27 v1.2.1
  Two Column Curriculum Vitae]
 
 \LoadClassWithOptions{scrartcl}
@@ -170,5 +170,9 @@
 	\textsc{##1} & {\raggedright ##2\medskip\\}\\[\unbaseline]}
     \tabularx{\linewidth}{rX}}
     {\endtabularx}
+
+\KOMAoption{bibliography}{totocnumbered}%Avoid dealing with
+%starred sections
+
 %%
 %% End of file `tccv.cls'.
