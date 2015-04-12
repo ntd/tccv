@@ -70,8 +70,8 @@
 
 % In tccv \part must contain the subject of the curriculum vitae.
 % The command will start a new page and output in onecolumn the
-% subject (first and last name) with the text from the optional second argument 
-% underneath it
+% subject (first and last name) with the text from the optional 
+% argument underneath it
 \renewcommand\part[2][Curriculum Vitae]{%
     \twocolumn[%
     \begin{center}
