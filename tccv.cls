@@ -70,14 +70,14 @@
 
 % In tccv \part must contain the subject of the curriculum vitae.
 % The command will start a new page and output in onecolumn the
-% subject (first and last name) with the hardcoded text
-% "Curriculum vitae" under it.
-\renewcommand\part[1]{%
+% subject (first and last name) with the text from the optional 
+% argument underneath it
+\renewcommand\part[2][Curriculum Vitae]{%
     \twocolumn[%
     \begin{center}
 	\vskip-\lastskip%
-	{\usekomafont{part} #1} \medskip\\
-	{\fontfamily{pzc}\selectfont\Huge Curriculum vitae}
+	{\usekomafont{part} #2} \medskip\\
+	{\fontfamily{pzc}\selectfont\Huge {#1}}
 	\bigskip
     \end{center}]}
 
