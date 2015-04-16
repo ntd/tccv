@@ -40,9 +40,8 @@
 % This macro uses Lua to do the job but fails gracefully (that is,
 % return the text as is) if \directlua is not available.
 %
-% |[
-% \ucwords[optional: miminum length]{text}
-% ]|
+%     \ucwords
+%         [optional: miminum length]{text}
 \newcommand\ucwords[2][3]{%
     % Fails gracefully if not in LuaLaTeX
     \providecommand\directlua[1]{#2}%
@@ -96,9 +95,10 @@
 % Allow conditionals based on the job name. This can usually be set
 % from a command-line argument: check fausto.en.tex for an example.
 %
-% |[
-% \ifjob{jobname}{content if matches}{content if does not match}
-% ]|
+%     \ifjob
+%         {jobname}
+%         {content if matches}
+%         {content if does not match}
 \newcommand\ifjob[3]{%
     \edef\JOBNAME{\jobname}%
     \edef\PIVOT{\detokenize{#1}}%
@@ -107,10 +107,11 @@
 
 % Renders a personal data box:
 %
-% |[
-% \personal[optional: web site without scheme (no http:// prefix)]
-%          {address}{phone number}{email}
-% ]|
+%     \personal
+%         [url without scheme, i.e. no http:// prefix]
+%         {address}
+%         {phone number}
+%         {email}
 \newcommand\personal[4][]{%
     \newcommand\SYMBOL[1]{\raisebox{-2pt}{\Large\ding{##1}}}%
     \needspace{0.5\textheight}%
@@ -127,11 +128,11 @@
 % Every \item can be followed by one or more paragraphs
 % of description:
 %
-% |[
-% \item{date range}{company}{role}
-%
-% Description of what achieved during this application.
-% ]|
+%     \item
+%         {date range}
+%         {company}
+%         {role}
+%     One or more paragraphs describing what achieved during this application.
 \newenvironment{eventlist}{%
     \newcommand*\inskip{}
     \renewcommand\item[3]{%
@@ -143,12 +144,14 @@
 	\renewcommand\inskip{\bigskip}}}
     {\bigskip}
 
-% Use only \item inside this environment: no other macros
+% Use only \item inside this environment, no other macros
 % are allowed:
 %
-% |[
-% \item[optional: what has been achieved]{years}{subject}{notes}
-% ]|
+%     \item
+%         [what has been achieved]
+%         {years}
+%         {subject}
+%         {notes}
 \newenvironment{yearlist}{%
     \renewcommand\item[4][]{%
 	\textsc{##2} & \textbf{##3} \\
@@ -161,9 +164,9 @@
 % Use only \item inside this environment: no other macros
 % are allowed:
 %
-% |[
-% \item{fact}{description}
-% ]|
+%     \item
+%         {fact}
+%         {description}
 \newenvironment{factlist}{%
     \newdimen\unbaseline
     \unbaseline=\dimexpr-\baselinestretch\baselineskip\relax
@@ -172,8 +175,10 @@
     \tabularx{\linewidth}{rX}}
     {\endtabularx}
 
-\KOMAoption{bibliography}{totocnumbered}%Avoid dealing with
-%starred sections
+% Avoid dealing with starred sections
+% See the following question for further details:
+% http://tex.stackexchange.com/questions/223607/does-the-bibliography-command-specify-a-section-anywhere
+\KOMAoption{bibliography}{totocnumbered}
 
 %%
 %% End of file `tccv.cls'.
