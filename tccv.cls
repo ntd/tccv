@@ -31,7 +31,8 @@
 
 \setcounter{secnumdepth}{-1}
 \RequirePackage[hmargin=1.25cm,vmargin=1.25cm,twocolumn,columnsep=1.25cm]{geometry}
-\RequirePackage{bookman,etoolbox,hyperref,needspace,pifont,tabularx,xcolor}
+\RequirePackage{bookman,etoolbox,needspace,pifont,tabularx,xcolor}
+\RequirePackage{hyperref}
 
 % Capitalize words of at least a minimum length (default to 3 chars).
 % The text is capitalized before being expanded.
