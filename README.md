@@ -53,3 +53,13 @@ affix it on the top (or on the bottom) you can make it a float, e.g.:
              {phone}
              {email}
     \end{myfloat}
+
+### Personal box broken in LyX
+
+For some reason LyX (at least up to 2.1.3) escapes the brackets of the
+`\personal` optional argument, scattering the URL letters all around.
+If this is the case if you look at the source window you should see
+something like `{[}www.myweb.site{]}` instead of `[www.myweb.site]`.
+
+To solve this problem just readd the argument as *TeX code* by
+eventually using the `CTRL-l` shortcut.
