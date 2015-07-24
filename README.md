@@ -42,6 +42,15 @@ online](http://www.entidi.com/assets/pdf/nicola.en.pdf).
 The `\personal` box by default follows the text flow. If you want to
 affix it on the top (or on the bottom) you can make it a float, e.g.:
 
+    \begin{figure}[b] % Push the figure at the bottom; use t for top
+    \personal[url]
+             {address}
+             {phone}
+             {email}
+    \end{figure}
+
+Alternatively you can use the myfloat package:
+
     % In the preamble
     \usepackage{float}
     \newfloat{myfloat}{t}{} % 'myfloat' is arbitrary, 't' stands for 'top'
