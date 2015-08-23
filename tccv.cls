@@ -24,14 +24,15 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{tccv}
-              [2014/24/06 v1.2
+              [2015/04/16 v1.2.2
  Two Column Curriculum Vitae]
 
 \LoadClassWithOptions{scrartcl}
 
 \setcounter{secnumdepth}{-1}
 \RequirePackage[hmargin=1.25cm,vmargin=1.25cm,twocolumn,columnsep=1.25cm]{geometry}
-\RequirePackage{bookman,etoolbox,hyperref,needspace,pifont,tabularx,xcolor}
+\RequirePackage{bookman,etoolbox,needspace,pifont,tabularx,xcolor}
+\RequirePackage{hyperref}
 
 % Capitalize words of at least a minimum length (default to 3 chars).
 % The text is capitalized before being expanded.
@@ -39,9 +40,8 @@
 % This macro uses Lua to do the job but fails gracefully (that is,
 % return the text as is) if \directlua is not available.
 %
-% |[
-% \ucwords[optional: miminum length]{text}
-% ]|
+%     \ucwords
+%         [optional: miminum length]{text}
 \newcommand\ucwords[2][3]{%
     % Fails gracefully if not in LuaLaTeX
     \providecommand\directlua[1]{#2}%
@@ -70,14 +70,14 @@
 
 % In tccv \part must contain the subject of the curriculum vitae.
 % The command will start a new page and output in onecolumn the
-% subject (first and last name) with the hardcoded text
-% "Curriculum vitae" under it.
-\renewcommand\part[1]{%
+% subject (first and last name) with the text from the optional
+% argument underneath it
+\renewcommand\part[2][Curriculum Vitae]{%
     \twocolumn[%
     \begin{center}
 	\vskip-\lastskip%
-	{\usekomafont{part} #1} \medskip\\
-	{\fontfamily{pzc}\selectfont\Huge Curriculum vitae}
+	{\usekomafont{part} #2} \medskip\\
+	{\fontfamily{pzc}\selectfont\Huge {#1}}
 	\bigskip
     \end{center}]}
 
@@ -95,9 +95,10 @@
 % Allow conditionals based on the job name. This can usually be set
 % from a command-line argument: check fausto.en.tex for an example.
 %
-% |[
-% \ifjob{jobname}{content if matches}{content if does not match}
-% ]|
+%     \ifjob
+%         {jobname}
+%         {content if matches}
+%         {content if does not match}
 \newcommand\ifjob[3]{%
     \edef\JOBNAME{\jobname}%
     \edef\PIVOT{\detokenize{#1}}%
@@ -106,10 +107,11 @@
 
 % Renders a personal data box:
 %
-% |[
-% \personal[optional: web site without scheme (no http:// prefix)]
-%          {address}{phone number}{email}
-% ]|
+%     \personal
+%         [url without scheme, i.e. no http:// prefix]
+%         {address}
+%         {phone number}
+%         {email}
 \newcommand\personal[4][]{%
     \newcommand\SYMBOL[1]{\raisebox{-2pt}{\Large\ding{##1}}}%
     \needspace{0.5\textheight}%
@@ -126,11 +128,11 @@
 % Every \item can be followed by one or more paragraphs
 % of description:
 %
-% |[
-% \item{date range}{company}{role}
-%
-% Description of what achieved during this application.
-% ]|
+%     \item
+%         {date range}
+%         {company}
+%         {role}
+%     One or more paragraphs describing what achieved during this application.
 \newenvironment{eventlist}{%
     \newcommand*\inskip{}
     \renewcommand\item[3]{%
@@ -142,12 +144,14 @@
 	\renewcommand\inskip{\bigskip}}}
     {\bigskip}
 
-% Use only \item inside this environment: no other macros
+% Use only \item inside this environment, no other macros
 % are allowed:
 %
-% |[
-% \item[optional: what has been achieved]{years}{subject}{notes}
-% ]|
+%     \item
+%         [what has been achieved]
+%         {years}
+%         {subject}
+%         {notes}
 \newenvironment{yearlist}{%
     \renewcommand\item[4][]{%
 	\textsc{##2} & \textbf{##3} \\
@@ -160,9 +164,9 @@
 % Use only \item inside this environment: no other macros
 % are allowed:
 %
-% |[
-% \item{fact}{description}
-% ]|
+%     \item
+%         {fact}
+%         {description}
 \newenvironment{factlist}{%
     \newdimen\unbaseline
     \unbaseline=\dimexpr-\baselinestretch\baselineskip\relax
@@ -171,6 +175,9 @@
     \tabularx{\linewidth}{rX}}
     {\endtabularx}
 
+% Avoid dealing with starred sections
+% See the following question for further details:
+% http://tex.stackexchange.com/questions/223607/does-the-bibliography-command-specify-a-section-anywhere
 \KOMAoption{bibliography}{totocnumbered}
 
 %%

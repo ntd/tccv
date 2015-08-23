@@ -1,0 +1,18 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass[tccv,scrartcl,hyperref.sty,xcolor.sty]{Two columns CV}
+#  \DeclareCategory{Curricula Vitae}
+
+Format 49
+Input scrartcl.layout
+Columns		2
+Sides		1
+SecNumDepth	-1
+TocDepth	-1
+
+# Preloaded packages.
+# Others include bookman, etoolbox, needspace, pifont and tabularx:
+# I am not sure all of them need their own Provides line nor I know
+# when to put them inside \DeclareLaTeXClass
+Provides hyperref 1
+Provides geometry 1
+Provides xcolor   1

@@ -42,6 +42,15 @@ online](http://www.entidi.com/assets/pdf/nicola.en.pdf).
 The `\personal` box by default follows the text flow. If you want to
 affix it on the top (or on the bottom) you can make it a float, e.g.:
 
+    \begin{figure}[b] % Push the figure at the bottom; use t for top
+    \personal[url]
+             {address}
+             {phone}
+             {email}
+    \end{figure}
+
+Alternatively you can use the myfloat package:
+
     % In the preamble
     \usepackage{float}
     \newfloat{myfloat}{t}{} % 'myfloat' is arbitrary, 't' stands for 'top'
@@ -53,3 +62,13 @@ affix it on the top (or on the bottom) you can make it a float, e.g.:
              {phone}
              {email}
     \end{myfloat}
+
+### Personal box broken in LyX
+
+For some reason LyX (at least up to 2.1.3) escapes the brackets of the
+`\personal` optional argument, scattering the URL letters all around.
+If this is the case if you look at the source window you should see
+something like `{[}www.myweb.site{]}` instead of `[www.myweb.site]`.
+
+To solve this problem just readd the argument as *TeX code* by
+eventually using the `CTRL-l` shortcut.
