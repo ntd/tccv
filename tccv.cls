@@ -170,5 +170,8 @@
 	\textsc{##1} & {\raggedright ##2\medskip\\}\\[\unbaseline]}
     \tabularx{\linewidth}{rX}}
     {\endtabularx}
+
+\KOMAoption{bibliography}{totocnumbered}
+
 %%
 %% End of file `tccv.cls'.
