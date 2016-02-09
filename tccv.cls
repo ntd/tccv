@@ -83,14 +83,12 @@
 
 % Overrides the \section command to capitalize every
 % word for cosmetic purposes and draws a rule under it.
-\makeatletter
 \let\old@section\section
 \renewcommand\section[2][]{%
     \old@section[#1]{\ucwords{#2}}%
     \newdimen\raising%
     \raising=\dimexpr-0.7\baselineskip\relax%
     \vskip\raising\hrule height 0.4pt\vskip-\raising}
-\makeatother
 
 % Allow conditionals based on the job name. This can usually be set
 % from a command-line argument: check fausto.en.tex for an example.
@@ -180,5 +178,12 @@
 % http://tex.stackexchange.com/questions/223607/does-the-bibliography-command-specify-a-section-anywhere
 \KOMAoption{bibliography}{totocnumbered}
 
+\AtEndPreamble{%
+	\@ifpackageloaded{biblatex}{%
+		\defbibheading{bibliography}[\refname]{%
+			\section{#1}%
+		}%
+	}{}%
+}
 %%
 %% End of file `tccv.cls'.
