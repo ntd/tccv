@@ -72,3 +72,24 @@ something like `{[}www.myweb.site{]}` instead of `[www.myweb.site]`.
 
 To solve this problem just readd the argument as *TeX code* by
 eventually using the `CTRL-l` shortcut.
+
+### Bullet points in ``eventlist``
+
+``Tccv`` does not support bullet points due to its ``\eventlist`` environment that overrides the default ``\item`` command. That's why code like the following would not work (see [#5](https://github.com/ntd/tccv/issues/5))
+
+```tex
+\begin{eventlist}
+
+\item{July 2007 -- Present}
+     {Furman University, Greenville, SC}
+     {Software Developer}
+
+\begin{itemize}
+     \item Development and testing of automatic and semiautomatic machines
+     \item  Designing of electrical schematics
+\end{itemize}
+```
+
+Fixing this issue would either be an ugly hack or a breaking change to the existing APIs. Since backward-compatibility is desired, this repo won't fix this issue. However, you may view a variant of ``tccv`` that addresses bullet points (see demo here: [resume.pdf](https://costahuang.me/resume.pdf), and its corresponding repo here:  [vwxyzjn/tccv-bullet-points](https://github.com/vwxyzjn/tccv-bullet-points))
+
+
