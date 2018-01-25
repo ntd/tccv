@@ -90,6 +90,6 @@ eventually using the `CTRL-l` shortcut.
 \end{itemize}
 ```
 
-Fixing this issue would either be an ugly hack or a breaking change to the existing APIs. Since backward-compatibility is desired, this repo won't fix this issue. However, you may view a variant of ``tccv`` that addresses bullet points (see demo here: [resume.pdf](https://costahuang.me/resume.pdf), and its corresponding repo here:  [vwxyzjn/tccv](https://github.com/vwxyzjn/tccv-bullet-points))
+Fixing this issue would either be an ugly hack or a breaking change to the existing APIs. Since backward-compatibility is desired, this repo won't fix this issue. However, you may view a variant of ``tccv`` that addresses bullet points (see demo here: [resume.pdf](https://costahuang.me/resume.pdf), and its corresponding repo here:  [vwxyzjn/tccv-bullet-points](https://github.com/vwxyzjn/tccv-bullet-points))
 
 
