@@ -67,6 +67,14 @@
 \definecolor{header}{HTML}{801010}
 \definecolor{personal}{HTML}{F5DD9D}
 
+% Allow the resume's theme to be B/W only
+\DeclareOption{blackwhite}{%
+\definecolor{header}{HTML}{1C1C1C}%
+\definecolor{personal}{HTML}{F7F7F7}%
+}
+
+\ProcessOptions\relax
+
 \pagestyle{empty}
 \setlength\parindent{0pt}
 \color{foregound} % Default foreground color
