@@ -134,7 +134,7 @@
     \SYMBOL{45} & {#2}\smallskip\\
     \SYMBOL{37} & {#3}\smallskip\\
     \SYMBOL{41} & \href{mailto:#4}{#4}
-    \ifstrempty{#1}{}{\smallskip\\ \SYMBOL{218} & \href{http://#1}{#1}}
+    \ifstrempty{#1}{}{\smallskip\\ \SYMBOL{218} & \href{https://#1}{#1}}
     \end{tabularx}}}
 
 % Every \item can be followed by one or more paragraphs
