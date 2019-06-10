@@ -60,12 +60,18 @@
 	end
 	tex.print(dst)}}
 
+% Default color theme
+\definecolor{foregound}{HTML}{303030}
+\definecolor{url}{HTML}{506060}
+\definecolor{link}{HTML}{506060}
+\definecolor{header}{HTML}{801010}
+\definecolor{personal}{HTML}{F5DD9D}
+
 \pagestyle{empty}
 \setlength\parindent{0pt}
-\color[HTML]{303030} % Default foreground color
-\definecolor{link}{HTML}{506060} % Hyperlinks
-\hypersetup{colorlinks,breaklinks,urlcolor=link,linkcolor=link}
-\setkomafont{disposition}{\color[HTML]{801010}}
+\color{foregound} % Default foreground color
+\hypersetup{colorlinks,breaklinks,urlcolor=url,linkcolor=link}
+\setkomafont{disposition}{\color{header}}
 \setkomafont{section}{\scshape\Large\mdseries}
 
 % In tccv \part must contain the subject of the curriculum vitae.
@@ -115,7 +121,7 @@
     \needspace{0.5\textheight}%
     \newdimen\boxwidth%
     \boxwidth=\dimexpr\linewidth-2\fboxsep\relax%
-    \colorbox[HTML]{F5DD9D}{%
+    \colorbox{personal}{%
     \begin{tabularx}{\boxwidth}{c|X}
     \SYMBOL{45} & {#2}\smallskip\\
     \SYMBOL{37} & {#3}\smallskip\\
