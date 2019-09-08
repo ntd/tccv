@@ -24,8 +24,8 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{tccv}
-              [2019/09/08 v1.3.0
- Two Column Curriculum Vitae]
+	      [2019/09/08 v1.3.0
+	       Two Column Curriculum Vitae]
 
 \LoadClassWithOptions{scrartcl}
 
@@ -69,9 +69,8 @@
 
 % Allow the resume's theme to be B/W only
 \DeclareOption{blackwhite}{%
-\definecolor{header}{HTML}{1C1C1C}%
-\definecolor{personal}{HTML}{F7F7F7}%
-}
+    \definecolor{header}{HTML}{1C1C1C}%
+    \definecolor{personal}{HTML}{F7F7F7}}
 
 \ProcessOptions\relax
 
@@ -114,8 +113,7 @@
 \newcommand\ifjob[3]{%
     \edef\JOBNAME{\jobname}%
     \edef\PIVOT{\detokenize{#1}}%
-    \ifdefstrequal{\JOBNAME}{\PIVOT}{#2}{#3}%
-}
+    \ifdefstrequal{\JOBNAME}{\PIVOT}{#2}{#3}}
 
 % Creates an unordered list of keys (optionals) and values (i.e. a
 % description text) inside a colored box. See the `\personal` command
@@ -139,7 +137,7 @@
     \setbox0=\hbox\bgroup%
     \tabularx{\boxwidth}{c|X}}
     {\endtabularx\egroup\colorbox{\KEYVALUECOLOR}{\box0}%
-    \setcounter{KEYVALUECOUNTER}{0}}
+     \setcounter{KEYVALUECOUNTER}{0}}
 
 % Renders a personal data box:
 %
@@ -214,11 +212,7 @@
 \KOMAoption{bibliography}{totocnumbered}
 
 \AtEndPreamble{%
-	\@ifpackageloaded{biblatex}{%
-		\defbibheading{bibliography}[\refname]{%
-			\section{#1}%
-		}%
-	}{}%
-}
+    \@ifpackageloaded{biblatex}{%
+	\defbibheading{bibliography}[\refname]{\section{#1}}}{}}
 %%
 %% End of file `tccv.cls'.
