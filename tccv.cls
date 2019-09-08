@@ -24,7 +24,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{tccv}
-              [2015/04/16 v1.2.2
+              [2019/09/08 v1.3.0
  Two Column Curriculum Vitae]
 
 \LoadClassWithOptions{scrartcl}
