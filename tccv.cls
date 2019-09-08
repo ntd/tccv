@@ -1,4 +1,4 @@
-% Copyright (C) 2012,2014  Nicola Fontana <ntd at entidi.it>
+% Copyright (C) 2012-2019  Nicola Fontana <ntd at entidi.it>
 %
 % This program can be redistributed and/or modified under
 % the terms of the LaTeX Project Public License, either
