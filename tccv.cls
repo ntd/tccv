@@ -117,6 +117,30 @@
     \ifdefstrequal{\JOBNAME}{\PIVOT}{#2}{#3}%
 }
 
+% Creates an unordered list of keys (optionals) and values (i.e. a
+% description text) inside a colored box. See the `\personal` command
+% for a real use case.
+%
+%     \begin{keyvaluelist}{color}
+%         \item[key text] value text...
+%         ...
+%     \end{keyvaluelist}
+\newcounter{KEYVALUECOUNTER}%
+\newenvironment{keyvaluelist}[1]{%
+    \newcommand\KEYVALUECOLOR{#1}%
+    \renewcommand\item[1][]{%
+	\stepcounter{KEYVALUECOUNTER}%
+	\ifnumequal{\value{KEYVALUECOUNTER}}{1}{}{\smallskip\cr}%
+	##1 & }%
+    \newdimen\boxwidth\boxwidth=\dimexpr\linewidth-2\fboxsep\relax%
+    % Tried to use \savebox and lrbox environment without success:
+    % both fail complaining about some phantom } missing. I'm too
+    % tired to guess what LaTeX wants... falling back to TeX here.
+    \setbox0=\hbox\bgroup%
+    \tabularx{\boxwidth}{c|X}}
+    {\endtabularx\egroup\colorbox{\KEYVALUECOLOR}{\box0}%
+    \setcounter{KEYVALUECOUNTER}{0}}
+
 % Renders a personal data box:
 %
 %     \personal
@@ -127,15 +151,12 @@
 \newcommand\personal[4][]{%
     \newcommand\SYMBOL[1]{\raisebox{-2pt}{\Large\ding{##1}}}%
     \needspace{0.5\textheight}%
-    \newdimen\boxwidth%
-    \boxwidth=\dimexpr\linewidth-2\fboxsep\relax%
-    \colorbox{personal}{%
-    \begin{tabularx}{\boxwidth}{c|X}
-    \SYMBOL{45} & {#2}\smallskip\\
-    \SYMBOL{37} & {#3}\smallskip\\
-    \SYMBOL{41} & \href{mailto:#4}{#4}
-    \ifstrempty{#1}{}{\smallskip\\ \SYMBOL{218} & \href{https://#1}{#1}}
-    \end{tabularx}}}
+    \begin{keyvaluelist}{personal}
+	\item[\SYMBOL{45}] #2
+	\item[\SYMBOL{37}] #3
+	\item[\SYMBOL{41}] \href{mailto:#4}{#4}
+	\ifstrempty{#1}{}{\item[\SYMBOL{218}] \href{https://#1}{#1}}
+    \end{keyvaluelist}}
 
 % Every \item can be followed by one or more paragraphs
 % of description:
