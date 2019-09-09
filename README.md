@@ -14,7 +14,7 @@ perspective, the most relevant differences from the original template are:
   [psnfss](http://www.ctan.org/pkg/psnfss) collection, so no
   custom font installation should be required;
 * it is plain LaTeX/Koma-script, so the CV can be compiled
-  with the usual tools, latex and pdflatex included;
+  with the usual tools, latex pdflatex and lualatex included;
 * the implementation is heavily based on custom environments
   and macros, so the document should be much easier to read
   (and customize);
