@@ -86,6 +86,10 @@
 \hypersetup{colorlinks,breaklinks,urlcolor=url,linkcolor=link}
 \setkomafont{disposition}{\color{header}}
 \setkomafont{section}{\scshape\Large\mdseries}
+\newkomafont{cv}{%
+    \@ifundefined{directlua}%
+	{\fontfamily{pzc}\selectfont\Huge}%
+	{\itshape\huge}}
 
 % In tccv \part must contain the subject of the curriculum vitae.
 % The command will start a new page and output in onecolumn the
@@ -96,7 +100,7 @@
     \begin{center}
 	\vskip-\lastskip%
 	{\usekomafont{part} #2} \medskip\\
-	{\fontfamily{pzc}\selectfont\Huge {#1}}
+	{\usekomafont{cv} #1}
 	\bigskip
     \end{center}]}
 
