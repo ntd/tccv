@@ -31,7 +31,7 @@ The code is maintained in a git repository [browsable
 online](https://github.com/ntd/tccv): fill free to fork it and extends in any
 way you like.
 
-A sample PDF generated with the command `lualatext nicola.en.tex` can be
+A sample PDF generated with the command `lualatex nicola.en.tex` can be
 [downloaded](https://github.com/ntd/tccv/raw/master/nicola.en.pdf).
 
 ## Howto
