@@ -1,4 +1,4 @@
-% Copyright (C) 2012-2019  Nicola Fontana <ntd at entidi.it>
+% Copyright (C) 2012-2021  Nicola Fontana <ntd at entidi.it>
 %
 % This program can be redistributed and/or modified under
 % the terms of the LaTeX Project Public License, either
@@ -24,7 +24,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{tccv}
-	      [2019/09/08 v1.3.0
+	      [2021/12/16 v1.3.1
 	       Two Column Curriculum Vitae]
 
 \LoadClassWithOptions{scrartcl}
