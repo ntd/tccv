@@ -13,40 +13,43 @@
      {eNTiDi software, Travagliato}
      {Amministratore e sviluppatore}
 
-Sviluppo software per l'automazione industriale in genere:
-front-end di configurazione in C con interfaccia
-\href{http://www.gtk.org/}{GTK+}, applicativi e siti web su piattaforma
-LAMP con framework \href{http://www.silverstripe.org/}{SilverStripe},
-programmi di supervisione e sistemi di remotizzazione in
-\href{http://www.lua.org/}{Lua} su GNU/Linux.
+Software di automazione industriale su PC industriali Linux con fieldbus
+Modbus, CANopen o \href{https://etherlab.org}{EtherCAT}, front-end di
+comando (HMI) con interfaccia \href{https://lvgl.io}{LVGL},
+\href{https://www.gtk.org/}{GTK} o \href{https://www.qt.io}{Qt} via
+\href{https://open62541.org/}{OPC/UA}, o web via
+\href{https://mqtt.org}{MQTT} websocket, gestionali web custom su
+piattaforma LEMP con framework PHP
+\href{https://www.silverstripe.org/}{Silverstripe},
+generazione automatica di disegni tecnici con
+\href{https://adg.entidi.com}{ADG}, sviluppo schede embedded
+\href{https://docs.espressif.com/projects/esp-idf}{Espressif} e
+\href{https://www.arduino.cc}{Arduino}.
 
 \item{Gennaio 2002 -- Giugno 2004}
      {TEMA s.r.l., Travagliato}
      {Programmazione PLC Omron}
 
-Programmazione e collaudo di macchine automatiche e
-semiautomatiche per l'avvolgimento di nastri in bobine e rotoli (cinture
-di sicurezza, nastro a strappo, tessuti elastici e fettucce). Sviluppo
-degli impianti elettrotecnici con cad 2D e stesura dei manuale
-utente.
+Programmazione e collaudo di macchine automatiche e semiautomatiche per
+avvolgimento di nastri in bobine o rotoli (cinture di sicurezza, nastro
+a strappo, tessuti elastici e fettucce).
 
 \item{Ottobre 1998 -- Novembre 2001}
      {TWINS s.r.l., Sarezzo}
      {Programmazione PC e PLC Siemens}
 
-Programmazione, installazione e verifica di macchine a
-trasferta per l'assemblaggio e il collaudo di rubinetti del gas e di
-banchi di prova semiautomatici per il controllo pneumatico e idraulico
-di valvolame, regolatori del gas, elettrovalvole e altro.
+Programmazione, installazione e verifica di trasfert per l'assemblaggio
+e il collaudo di rubinetti del gas e di banchi semiautomatici per
+prove di tenuta e portata pneumatica o idraulica di serbatoi, valvolame,
+regolatori del gas, elettrovalvole e altro.
 
 \item{Settembre 1996 -- Settembre 1998}
      {Elettronica EFFE-GI s.n.c., Cazzago}
      {Programmazione PC e PLC Hitachi}
 
 Programmazione di macchine automatiche e semiautomatiche per
-l'automazione in genere, ivi incluso progettazione dell'impianto
-elettrico, pneumatico e idraulico su cad 2D. Implementazione di
-programmi di configurazione e logging via seriale tra PC e PLC prima in
+l'automazione in genere, sia produzione che collaudo. Implementazione di
+programmi di configurazione e logging seriale tra PC e PLC prima in
 BASIC e poi in Pascal e C su piattaforme MS-DOS.
 
 \item{Gennaio 1994 -- Giugno 1996}
@@ -57,7 +60,7 @@ Progettazione di polverizzatori per motori diesel ed ingegnerizzazione
 della produzione. Aggiornamento del sistema gestionale attraverso lo
 sviluppo di \href{http://adg.entidi.com/home/history/}{un applicativo}
 per la manipolazione di dati e la generazione automatica di disegni in
-DXF basato su database SuperBase 95.
+DXF basato prima su database SuperBase 95 e poi su Access.
 
 \end{eventlist}
 
@@ -85,33 +88,37 @@ DXF basato su database SuperBase 95.
 
 \begin{yearlist}
 
-\item{2014}
+\item{2024...}
+     {NUT driver (\href{https://networkupstools.org/docs/man/bicker\_ser.html}{NUT})}
+     {Network UPS tools driver per Bicker}
+
+\item{2018...}
+     {libmachinery (\href{https://codeberg.org/ntd/libmachinery}{codeberg.org})}
+     {Supporto software industriale}
+
+\item{2014-2015}
      {lv-canopen (\href{https://sourceforge.net/projects/lv-canopen/}{sourceforge.net})}
-     {Stack master CANopen per LabVIEW}
+     {Main stack CANopen in LabVIEW}
 
-\item{2013}
+\item{2013...}
      {silverstripe (\href{https://packagist.org/packages/entidi/}{packagist.org})}
-     {Temi e moduli basati su SilverStripe}
+     {Raccolta di moduli per Silverstripe}
 
-\item{2012}
+\item{2012-2016}
      {ntdisp (\href{https://sourceforge.net/projects/ntdisp/}{sourceforge.net})}
-     {Programmatore di device embedded}
+     {Flasher embeddedd devices}
 
-\item{2007}
-     {tip (The I Preprocessor, defunto)}
-     {Framework PHP basato su PEAR}
-
-\item{2006}
+\item{2006...}
      {adg (\href{https://adg.entidi.com/}{adg.entidi.com})}
      {Generazione automatica di disegni}
 
-\item{2006}
+\item{2006-2010}
      {gtk2panel (\href{https://sourceforge.net/projects/gtk2panel/}{sourceforge.net})}
      {Menu a pannello per GTK+2}
 
-\item{2004}
+\item{2004-2006}
      {ntd (\href{https://sourceforge.net/projects/ntd/}{sourceforge.net})}
-     {Librerie per l'automazione industriale}
+     {Supporto software industriale}
 
 \end{yearlist}
 
@@ -128,15 +135,16 @@ DXF basato su database SuperBase 95.
 \begin{factlist}
 
 \item{Ottimo}
-     {C, PHP, HTML, CSS, autotools, git, gcc, GTK+/GObject, shell,
-      Linux, G-Code, Lua}
+     {Linux, DOS, C, PHP, Lua, shell, ladder, G-Code, HTML, CSS,
+      GTK, Silverstripe, LVGL, git, composer, NGINX, Bootstrap, meson}
 
 \item{Intermedio}
-     {FreeBSD, MS-DOS, \LaTeX, MySQL, VBA, cuBasic, ladder, pascal,
-      LabVIEW, Javascript}
+     {BSD, FreeRTOS, SQL, C++, FBD, JavaScript, BASIC, Pascal, Zig,
+      LabVIEW, jquery, Docker, Apache}
 
 \item{Base}
-     {Windows, OpenIndiana, subversion, Postgres, Erlang, Forth}
+    {Windows, OpenIndiana, Python, Typescript, Erlang, Forth, Perl, Go,
+     Kotlin, Qt, Gulp, Vite, React, Buildroot, Node, Subversion, cvs}
 
 \end{factlist}
 
