@@ -1,4 +1,4 @@
-% Copyright (C) 2012-2021  Nicola Fontana <ntd at entidi.it>
+% Copyright (C) 2012-2026  Nicola Fontana <ntd at entidi.it>
 %
 % This program can be redistributed and/or modified under
 % the terms of the LaTeX Project Public License, either
@@ -24,7 +24,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{tccv}
-	      [2021/12/16 v1.3.1
+	      [2026/09/26 v1.3.2
 	       Two Column Curriculum Vitae]
 
 \LoadClassWithOptions{scrartcl}
@@ -104,10 +104,12 @@
 	\bigskip
     \end{center}]}
 
-% Overrides the \section command to capitalize every
-% word for cosmetic purposes and draws a rule under it.
+% Overrides the \section command to remove a bit of vertical
+% spacing, capitalize every word for cosmetic purposes and
+% draws a rule under it.
 \let\old@section\section
 \renewcommand\section[2][]{%
+    \vspace{-10pt}%
     \old@section[#1]{\ucwords{#2}}%
     \newdimen\raising%
     \raising=\dimexpr-0.7\baselineskip\relax%
@@ -164,7 +166,8 @@
 	\item[\SYMBOL{37}] #3
 	\item[\SYMBOL{41}] \href{mailto:#4}{#4}
 	\ifstrempty{#1}{}{\item[\SYMBOL{218}] \href{https://#1}{#1}}
-    \end{keyvaluelist}}
+    \end{keyvaluelist}%
+    \medskip}
 
 % Every \item can be followed by one or more paragraphs
 % of description:
@@ -209,10 +212,8 @@
 %         {fact}
 %         {description}
 \newenvironment{factlist}{%
-    \newdimen\unbaseline
-    \unbaseline=\dimexpr-\baselinestretch\baselineskip\relax
     \renewcommand\item[2]{%
-	\textsc{##1} & {\raggedright ##2\medskip\\}\\[\unbaseline]}
+	\textsc{##1} & {\raggedright ##2\medskip\\}\\}
     \tabularx{\linewidth}{rX}}
     {\endtabularx}
 
